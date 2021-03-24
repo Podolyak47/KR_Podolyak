@@ -3,7 +3,7 @@ unit Unit1;
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Unit2,Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, VCLTee.TeEngine, VCLTee.Series,
   Vcl.ExtCtrls, VCLTee.TeeProcs, VCLTee.Chart, Vcl.Buttons, Vcl.StdCtrls,
   Vcl.Menus;
@@ -93,7 +93,7 @@ end;
 
 procedure TForm1.N1Click(Sender: TObject);
 begin
-Form1.Show;
+Form2.Show;
 end;
 
 
