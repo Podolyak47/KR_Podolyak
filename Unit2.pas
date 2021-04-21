@@ -29,6 +29,8 @@ type
     procedure Button1Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
 
   private
     { Private declarations }
@@ -38,7 +40,8 @@ type
 
 var
   Form2: TForm2;
-  Ym1,W1,Ym2,W2:double; t, Dt:word;
+  Ym1,W1,Ym2,W2:double;
+   t, Dt:word;
 
 implementation
 
@@ -61,13 +64,27 @@ begin
 if CheckBox1.Checked then timer1.Enabled:=true else timer1.Enabled:=not true;
 end;
 
-procedure TForm2.Timer1Timer(Sender: TObject);
+
+
+procedure TForm2.FormCreate(Sender: TObject);
 begin
-var x:integer; Y1:double;
+t:=0; {начальное значение времени}
+Ym1:=StrToFloat(Edit3.Text);
+ W1:=StrToFloat(Edit1.Text);
+  Ym2:=StrToFloat(Edit5.Text);
+  W2:=StrToFloat(Edit4.Text);
+  Dt:=StrToInt(Edit2.Text);
+end;
+
+procedure TForm2.Timer1Timer(Sender: TObject);
+var
+x:integer; Y1:double;
+
 begin Series1.Clear; t:=t+dt;
 for x:=-360 to 360 do begin  {*****Ќачало блока*****}
 Y1:=Ym1*cos(x*pi/180+w1*t);
 Series1.AddXY(X,Y1,'');
 end;
 
+end;
 end.
